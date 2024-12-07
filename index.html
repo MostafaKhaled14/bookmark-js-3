@@ -42,14 +42,16 @@
             </div>
         </div>
     </section>
-        <div id="validate" class="d-none allert position-absolute w-50 h-50 rounded-2 bg-light shadow d-flex justify-content-between align-items-start p-2">
-            <div class="d-flex me-2 p-2">
-                <p class="rounded-circle bg-danger p-2 m-1 mt-2"></p>
-                <p class="rounded-circle bg-warning p-2 m-1 mt-2"></p>
-                <p class="rounded-circle bg-success p-2 m-1 mt-2"></p>
+        <div id="validate" class="d-none allert position-absolute w-75 rounded-2 bg-light shadow d-flex justify-content-between align-items-start p-2">
+            <div class="d-flex justify-content-between w-100 ">
+                <div class="d-flex me-2 p-2">
+                    <p class="rounded-circle bg-danger p-2 m-1 mt-2"></p>
+                    <p class="rounded-circle bg-warning p-2 m-1 mt-2"></p>
+                    <p class="rounded-circle bg-success p-2 m-1 mt-2"></p>
+                </div>
+                <h2 class="me-2" id="close" onclick="closeAlert()">x</h2>
             </div>
-            <h2 class="me-2" id="close" onclick="closeAlert()">x</h2>
-            <div class="position-absolute p-3 pt-5 mt-5">
+            <div class="position-absolute p-3 pt-5 mt-5 bg-light">
                 <h3>Site Name or Url is not valid, Please follow the rules below :</h3>
                 <p><i class="far fa-arrow-alt-circle-right text-danger"></i> Site name must contain at least 3 characters</p>
                 <p><i class="far fa-arrow-alt-circle-right text-danger"></i> Site URL must be a valid one</p>
