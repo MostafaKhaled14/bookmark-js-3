@@ -5,7 +5,9 @@ var bMName = document.getElementById('sName');
 var webUrl = document.getElementById('sUrl');
 var tContent = document.getElementById('tableContent');
 var checkValid = document.getElementById('validate');
+var noneOverlay = document.getElementById('overlay');
 var data = JSON.parse(localStorage.getItem('data'));
+
 
 if(JSON.parse(localStorage.getItem('data')) == null){
     data = [];
@@ -106,9 +108,11 @@ webUrl.addEventListener('blur', validateUrl);
 function poshAlert(){
     if(webUrl.value == '' || bMName.value == '' || !/^.{3,}$/.test(bMName.value) || !/^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(\/[\w-]*)?$/i.test(webUrl.value)){
         checkValid.classList.remove('d-none');
+        noneOverlay.classList.remove('d-none');
     }
 }
 
 function closeAlert(){
     checkValid.classList.add('d-none');
+    noneOverlay.classList.add('d-none');
 }
