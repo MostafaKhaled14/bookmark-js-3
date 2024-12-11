@@ -12,7 +12,7 @@ var data = JSON.parse(localStorage.getItem('data'));
 if(JSON.parse(localStorage.getItem('data')) == null){
     data = [];
 }
-
+// .ljb.ljb
 showData()
 
 function addData() {
@@ -41,8 +41,8 @@ function showData() {
     for (var i = 0; i < data.length; i++) {
         trData += `
             <tr class="border-black border-bottom">
-                <td class="p-2">${i + 1}</td>
-                <td class="p-2">${data[i].sName}</td>
+                <td class="p-2 text-danger">${i + 1}</td>
+                <td class="p-2 text-success">${data[i].sName}</td>
                 <td class="p-2">
                     <button class="visit  border-0 rounded-2 px-2 py-1">
                         <a class="text-decoration-none text-light" href="${data[i].sUrl}" target="_blank"><i class="fas fa-eye"></i> Visit</a>
@@ -70,7 +70,7 @@ function deleteData(index){
 }
 
 function validUrl(url) {
-    var checkTOrF = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(\/[\w-]*)?$/i;
+    var checkTOrF = /https?:\/\/[^\s/$.?#].[^\s]*/;
     return checkTOrF.test(url);
 }
 function validName(name) {
@@ -91,7 +91,7 @@ function validateName(){
 }
 
 function validateUrl(){
-    if(/^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(\/[\w-]*)?$/i.test(webUrl.value)){
+    if(/https?:\/\/[^\s/$.?#].[^\s]*/.test(webUrl.value)){
         webUrl.classList.add('is-valid');
         webUrl.classList.remove('is-invalid');
         return true;
@@ -106,7 +106,7 @@ bMName.addEventListener('blur', validateName);
 webUrl.addEventListener('blur', validateUrl);
 
 function poshAlert(){
-    if(webUrl.value == '' || bMName.value == '' || !/^.{3,}$/.test(bMName.value) || !/^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(\/[\w-]*)?$/i.test(webUrl.value)){
+    if(webUrl.value == '' || bMName.value == '' || !/^.{3,}$/.test(bMName.value) || !/https?:\/\/[^\s/$.?#].[^\s]*/.test(webUrl.value)){
         checkValid.classList.remove('d-none');
         noneOverlay.classList.remove('d-none');
     }
